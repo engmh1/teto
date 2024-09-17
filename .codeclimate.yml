@@ -1,19 +1,22 @@
+version: "2"
 plugins:
-  rubocop:
+  checkstyle:
     enabled: true
-    channel: rubocop-1-30-0
-  fixme:
+    config:
+      file: "checkstyle.xml" # Optional: Define your custom Checkstyle rules.
+  pmd:
     enabled: true
-    exclude_patterns:
-      - config/engines.yml
-  markdownlint:
+    config:
+      rulesets:
+        - category/java/codestyle.xml # Use PMD's Java Code Style rules.
+        - category/java/bestpractices.xml
+  duplication:
     enabled: true
-    checks:
-      MD002: # "First header should be a h1 header"
-        enabled: false
-  shellcheck:
-    enabled: true
+    config:
+      languages:
+        java:
+          threshold: 25 # Set a threshold for duplication detection.
 exclude_patterns:
-  - .bundle/
-  - spec/**/*
-  - benchmarks/**/*
+  - "**/test/**"
+  - "**/vendor/**"
+  - "**/node_modules/**"
