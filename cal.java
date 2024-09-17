@@ -5,12 +5,7 @@ public class calculater {
         Scanner sc = new Scanner(System.in);
         System.out.println("enter operand a :");
         int a = sc.nextInt();
-        System.out.println("enter operand b :");
-        int b = sc.nextInt();
-        System.out.println("enter operator :");
-        char op = sc.next().charAt(0);
-
-        switch(op){
+       
             case '+':
                     System.out.println(a+b);
                     break;
