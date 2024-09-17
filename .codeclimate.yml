@@ -3,20 +3,19 @@ plugins:
   checkstyle:
     enabled: true
     config:
-      file: "checkstyle.xml" # Optional: Define your custom Checkstyle rules.
+      file: "checkstyle.xml"
   pmd:
     enabled: true
     config:
       rulesets:
-        - category/java/codestyle.xml # Use PMD's Java Code Style rules.
+        - category/java/codestyle.xml
         - category/java/bestpractices.xml
   duplication:
     enabled: true
     config:
       languages:
         java:
-          threshold: 25 # Set a threshold for duplication detection.
+          threshold: 25
 exclude_patterns:
   - "**/test/**"
   - "**/vendor/**"
-  - "**/node_modules/**"
