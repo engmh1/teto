@@ -1,17 +1,19 @@
----
-engines:
-  sonar-java:
+plugins:
+  rubocop:
     enabled: true
-    channel: beta
+    channel: rubocop-1-30-0
+  fixme:
+    enabled: true
+    exclude_patterns:
+      - config/engines.yml
+  markdownlint:
+    enabled: true
     checks:
-      squid:S00112: # Requires dedicated exceptions even for tests
+      MD002: # "First header should be a h1 header"
         enabled: false
-    config:
-      sonar.java.source: 1.8
-      tests_patterns:
-        - src/cal/**
-exclude_paths:
-  - build/
-  - fixtures/
-  - gradle/
-  - .gradle/
+  shellcheck:
+    enabled: true
+exclude_patterns:
+  - .bundle/
+  - spec/**/*
+  - benchmarks/**/*
